@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuedemo</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' >
+    <link rel='stylesheet' href='./style.css'>
+</head>
+<body>
+    <h1 class="text-center">複利計算シミュレータ</h1>
+    <h2 class="text-center">このサイトではあなたの将来の複利をシミュレーションすることができます。</h2>
+    <div id="app">
+        <p class="text-center">投資金額：<input type="number" v-model="input_costs" placeholder="金額を入力" />万円</p>
+        <p class="text-center">年利：<input type="number" v-model="input_per" placeholder="年利を入力" />％</p>
+        <p class="text-center">経過年数：<input type="number" v-model="input_years" placeholder="経過年数を入力" />年</p>
+        <p id="text1" class="text-center">10年後の金額は: {{calculate}}万円</p>
+
+
+        <div class="container">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Year</th>
+                        <th scope="col">Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(result, index) in results">
+                            <td>{{index+1}}年目</td>
+                            <td>{{result}}万円</td>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+    
+        <!-- <button @click='raise'>倍返しだ！</button> -->
+        <a v-bind:href='url'>中島聡のメルマガ登録はこちら</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
